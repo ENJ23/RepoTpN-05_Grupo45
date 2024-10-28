@@ -23,5 +23,14 @@ public class CollectionLibro {
 
 	}
 	
+	public static int sumarId() {
+    	return idIncremental++;
+    }
+    
+	public static void registrarLibro(Libro nuevoLibro){
+			libros.add(nuevoLibro);
+			System.out.println("Libro agregado con éxito");
+		}
+	
 	
 }
