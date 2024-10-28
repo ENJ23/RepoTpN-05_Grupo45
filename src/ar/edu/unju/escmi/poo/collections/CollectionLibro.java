@@ -32,5 +32,15 @@ public class CollectionLibro {
 			System.out.println("Libro agregado con éxito");
 		}
 	
+	public static void listarLibros() {
+		
+		System.out.println("Claro, aquí tienes la lista de libros");
+		System.out.println("Para tomar prestados los 'No disponibles' debes esperar a que sean devueltos. Ten cuidado con eso.");
+		for (Libro libro : libros) {
+			libro.mostrarDatos();
+		}
+		
+	}
+	
 	
 }
