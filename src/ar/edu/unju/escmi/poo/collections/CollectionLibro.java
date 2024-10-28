@@ -51,6 +51,18 @@ public class CollectionLibro {
 		throw new LibroNoEncontradoException("Libro no encontrado");
 	}
 	
+
+	public static Libro buscarLibroDisponible(int id) throws LibroNoDisponibleException {
+		for (Libro libro : libros) {
+			if (libro.isEstado()) {
+				if (libro.getId() == id) {
+					return libro;
+				}
+			}	
+		}
+		throw new LibroNoDisponibleException("Libro no encontrado");
+	}
 	
+
 	
 }
