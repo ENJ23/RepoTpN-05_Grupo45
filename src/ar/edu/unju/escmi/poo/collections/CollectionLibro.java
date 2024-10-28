@@ -63,6 +63,12 @@ public class CollectionLibro {
 		throw new LibroNoDisponibleException("Libro no encontrado");
 	}
 	
-
+	public static boolean isDisponible(Libro libro) throws LibroNoDisponibleException {
+		if (libro.isEstado()) {
+			return true;
+		}else {
+			throw new LibroNoDisponibleException("Libro no Disponible para prestamo");
+		}
+	}
 	
 }
