@@ -1,0 +1,75 @@
+Usuario: Bibliotecario
+
+Como bibliotecario
+Quiero registrar nuevos libros en el sistema
+Para mantener actualizado el inventario de la biblioteca
+DADO que el bibliotecario está en la página de registro de libros,
+CUANDO ingresa todos los campos obligatorios (titulo, autor, ISBN),
+ENTONCES el libro debe ser agregado al inventario y el sistema debe mostrar un mensaje de confimacion "Libro agregado con éxito".
+-----------------------------------------------------------------------------------------------------------
+
+Como bibliotecario
+Quiero registrar nuevos usuarios en el sistema
+Para habilitarlos para solicitar préstamos
+
+DADO que el bibliotecario está en la página de registro de usuarios,
+CUANDO ingrese todos los campos obligatorios (nombre, apellido, email y legajo si es bibliotecario, o curso y LU si es alumno) y hace click en ENTER,
+ENTONCES el usuario debe ser agregado al sistema y el sistema debe mostrar un mensaje de confirmación "Usuario registrado exitosamente".
+
+DADO que el bibliotecario está en la página de registro de usuarios
+CUANDO se escribe mal el tipo de usuario que se quiere registrar
+ENTONCES debe salir en pantalla una advertencia de que algo ha salido mal y debe volver a ingresar los datos correctamente.
+-----------------------------------------------------------------------------------------------------------
+
+Como bibliotecario
+Quiero registrar el préstamo de un libro
+Para que los alumnos puedan llevarlos a casa
+
+DADO que el bibliotecario está en la página de registro de préstamos,
+CUANDO selecciona un libro disponible y un usuario registrado, y se registre la fecha de entrega y fecha limite de devolución,
+ENTONCES el sistema debe registrar el préstamo y mostrar un mensaje de confirmación "Ya puede llevarse su libro...".
+
+DADO que el bibliotecario está en la página de registro de préstamos,
+CUANDO intenta registrar un préstamo de un libro que no está disponible (por ejemplo, ya está prestado),
+ENTONCES el sistema debe mostrar un mensaje de error "El libro no está disponible para préstamo".
+-----------------------------------------------------------------------------------------------------------
+
+Usuario: Alumno
+
+Como alumno
+Quiero consultar la lista de libros disponibles
+Para saber cuáles están en préstamo y cuáles puedo solicitar
+
+DADO que el alumno está en la página de consulta de libros,
+CUANDO accede a la lista de libros,
+ENTONCES el sistema debe mostrar una lista de todos los libros disponibles en la biblioteca, incluyendo su estado (disponible o en préstamo).
+
+DADO que el alumno está en la página de consulta de libros,
+CUANDO un libro está en préstamo,
+ENTONCES el sistema debe indicar claramente que el libro está "No disponible".
+-----------------------------------------------------------------------------------------------------------
+
+Como alumno
+Quiero buscar un libro por su id
+Para encontrar rápidamente el libro que necesito
+
+DADO que el alumno está en la página de búsqueda de libros,
+CUANDO ingresa un ID de libro válido en el campo de búsqueda y hace clic en "Buscar",
+ENTONCES el sistema debe mostrar la información del libro correspondiente, incluyendo título, autor, isbn y estado.
+
+DADO que el alumno está en la página de búsqueda de libros,
+CUANDO ingresa un ID de libro que no existe en el sistema y hace clic en "Buscar",
+ENTONCES el sistema debe mostrar un mensaje de error "Libro no registrado".
+-----------------------------------------------------------------------------------------------------------
+
+Como alumno
+Quiero devolver un libro que he recibido de préstamo
+Para reanudar la disponibilidad del libro.
+
+DADO que el alumno está en la página de devolución de libros,
+CUANDO selecciona un libro de la lista de libros prestados y hace clic en "Devolver",
+ENTONCES el sistema debe registrar la devolución y mostrar un mensaje de confirmación "Devolución registrada exitosamente".
+
+DADO que el alumno está en la página de devolución de libros,
+CUANDO selecciona un libro que ya ha sido devuelto previamente,
+ENTONCES el sistema debe mostrar un mensaje de error "Este libro ya ha sido devuelto".
